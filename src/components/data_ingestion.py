@@ -54,7 +54,7 @@ class DataIngestion:
             
             feature_store_file_path=os.path.join(raw_file_path, 'wafer_fault.csv')
             
-            sensor_data.to_scv(feature_store_file_path, index=False)
+            sensor_data.to_csv(feature_store_file_path, index=False)
             
             return feature_store_file_path
         
