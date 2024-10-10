@@ -26,7 +26,7 @@ jobs:
         run: echo "Running  unit tests"
 
   build-and-push-ecr-image:
-    name: Continous Delivery
+    name: Continuous Delivery
     needs: integration
     runs-on: ubuntu-latest
     steps:
@@ -49,17 +49,17 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
                   
       - name: Build, tag, and push image to Amazon ECR
-        id: buld-image
+        id: build-image
         env:
           IMAGE_TAG: latest
         run: |
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          docker build -t ${{ secrets.AWS_ECR_REPO_URI }}:$IMAGE_TSG .
+          docker build -t ${{ secrets.AWS_ECR_REPO_URI }}:$IMAGE_TAG .
           docker push ${{ secrets.AWS_ECR_REPO_URI }}:$IMAGE_TAG
 
-  Continous-Deployment:
+  Continuous-Deployment:
     needs: build-and-push-ecr-image
     runs-on: self-hosted
     steps:
@@ -79,7 +79,7 @@ jobs:
 
       - name: Pull latest images
         run: |
-         docker pull $ {{ secrets.AWS_ECR_REPO_URI }}:latest
+         docker pull ${{ secrets.AWS_ECR_REPO_URI }}:latest
 
       # - name: Stop and remove visibility container if running
       #   run: |
