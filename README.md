@@ -6,14 +6,8 @@ This project is a machine learning-based application for detecting faults in sen
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Data Ingestion from MongoDB](#data-ingestion-from-mongodb)
-- [Cloud Deployment on AWS EC2](#cloud-deployment-on-aws-ec2)
-- [CI/CD Pipeline](#cicd-pipeline)
 - [File Structure](#file-structure)
-- [Endpoints](#endpoints)
-- [Contributing](#contributing)
-- [License](#license)
+- [Usage](#usage)
 
 ## Project Overview
 The goal of this project is to build an ML pipeline that can detect faults in sensor data. The pipeline includes data ingestion, preprocessing, model training, and prediction. This repository contains the necessary files for building, training, and deploying the model using Flask as the web framework.
@@ -56,15 +50,7 @@ The goal of this project is to build an ML pipeline that can detect faults in se
     ```bash
     python app.py
     ```
-
-## Usage
-
-### Training
-To start training the model, navigate to `http://localhost:5000/train` in your web browser or use a tool like `curl`:
-```bash
-curl http://localhost:5000/train
-
-## Project Structure
+## File Structure
 
 The repository contains the following main directories and files:
 
@@ -86,3 +72,11 @@ Other important files:
 - **setup.py**: Installation setup for packaging the project.
 - **upload_data.py**: Script for data ingestion from MongoDB.
 - **README.md**: Project overview and documentation.
+## Usage
+
+### Training
+To start training the model, navigate to `http://localhost:5000/train` in your web browser or use a tool like `curl`:
+```bash
+curl http://localhost:5000/train
+
+
